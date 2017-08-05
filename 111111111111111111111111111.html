@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, width=device-width">
+
+</head>
+<body>
+<div id="app">
+	<button @click = "add">按钮</button>
+</div>
+ <script src="lib/vue.js"></script>
+ <script src="swiper-3.4.2.min.js"></script>
+ <script src="lib/vue-router.js"></script>
+ <script src="lib/vue-resource.js"></script>
+ <script src="lib/vuex.js"></script>
+ <script type="text/javascript" src="lib/jquery.js"></script>
+ <script>
+ 	new Vue({
+ 		el:"#app",
+ 		methods:{
+ 			add:function(){
+ 				$.ajax({
+ 					url:"https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_diss_tag_conf.fcg",
+ 					dataType:"jsonp",
+ 					data:{
+ 						
+ 					},
+ 					jsonp:"callback",
+ 					jsonpCallback:"getPlaylistTags",
+ 					success:function(res){
+ 						console.log(res)
+ 					}
+ 				})
+ 			}
+
+
+
+ 			// $.ajax({
+		  //            url:'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg',
+		  //            dataType:"jsonp",
+		  //            jsonp:"jsonpCallback",
+		  //            success:function(data){
+		  //               me.slider = data.data.slider;
+		  //               console.log(data)
+		  //            }
+		  //       });
+ 		}
+ 	})
+
+
+ 	// if ( oQ.value != '' ) {
+		// 	var oScript = document.createElement('script');
+		// 	oScript.src = 'http://api.douban.com/music/subjects?q='+oQ.value+'&alt=xd&callback=fn1&max-results=100';
+		// 	document.body.appendChild(oScript);
+		// }
+
+
+ </script>
+</html>
